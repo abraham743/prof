@@ -1,0 +1,30 @@
+﻿<Window x:Class="PRecu.VistaD"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PRecu"
+        mc:Ignorable="d"
+        Title="VistaD" Height="350" Width="600">
+    <Window.Background>
+        <ImageBrush ImageSource="https://c.wallhere.com/photos/48/ff/simple_background_texture_textured_blue_blue_background_simple_pattern-257765.jpg!d"></ImageBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition  Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" x:Name="datagrid_vistaD" Background="Transparent" ItemsSource="{Binding Path=LoadDataBinding}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=pkCita}" Header="Num. Cita" Width="80" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=NombreD}" Header="Nombre" Width="120" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=NombreU}" Header="Cedula" Width="120" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=EspecialidadD}" Header="Especialidad" Width="120" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=FechaCita}" Header="Fecha Cita" Width="150" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="1">
+            <Button x:Name="BRegreso" Margin="50,10" Background="{x:Null}" Height="20" Click="BRegresar_Click" >Salir</Button>
+        </StackPanel>
+    </Grid>
+</Window>
