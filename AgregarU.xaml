@@ -66,7 +66,7 @@
                 <DataGridTextColumn x:Name="ColumnaClienteID" Binding="{Binding Path=CLIENTE_ID_cliente}" Header="ID Cliente" Width="100" IsReadOnly="True" />
             </DataGrid.Columns>
         </DataGrid>
-        <Label  FontFamily="Arial Black" FontSize="16" Foreground="White" Content="MANTENIMIENTO" Margin="605,0,-165,400"/>
+        <Label  FontFamily="Arial Black" FontSize="16" Foreground="White" Content="MANTENIMIENTO" Margin="580,0,48,447"/>
         <StackPanel Orientation="Vertical"  Margin="542,42,10,-22" Grid.RowSpan="2">
 
             <Label x:Name="LabelNoMantenimiento" Margin="2" FontFamily="Arial Black" FontSize="16" Foreground="White" Content="No Mantenimiento"/>
