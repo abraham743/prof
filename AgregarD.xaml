@@ -7,14 +7,56 @@
         mc:Ignorable="d"
         Title="AgregarV" Height="480" Width="620">
     <Window.Background>
-        <ImageBrush ImageSource="https://iberisasl.com/blog/wp-content/uploads/2018/01/Licencia-apertura-taller.jpg"></ImageBrush>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#3E50B4" Offset="0"/>
+            <GradientStop Color="#8B5CF6" Offset="1"/>
+        </LinearGradientBrush>
     </Window.Background>
+
+    <Window.Resources>
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="Margin" Value="0,5"/>
+        </Style>
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="WhiteSmoke"/>
+            <Setter Property="BorderThickness" Value="0 0 0 1"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Margin" Value="50,10"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{x:Null}"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="410"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
+
         <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" x:Name="datagrid_vehiculo" Background="Transparent" ItemsSource="{Binding Path=LoadDataBinding}" SelectionChanged="datagrid_vehiculo_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=matricula}" Header="Matrícula" Width="90" IsReadOnly="True" />
@@ -23,23 +65,26 @@
                 <DataGridTextColumn Binding="{Binding Path=CLIENTE_ID_cliente}" Header="ID Cliente" Width="90" IsReadOnly="True" />
             </DataGrid.Columns>
         </DataGrid>
+
         <StackPanel Grid.Column="1">
-            <Label HorizontalAlignment="Center" FontSize="20" Margin="5" FontFamily="Arial" Foreground="#FF032CFF" FontWeight="Bold">Registrar Vehículo</Label>
-            <TextBox x:Name="txtMatricula" Background="{x:Null}"></TextBox>
-            <Label Margin="2" FontSize="16" FontFamily="Arial Black" Foreground="#FF032CFF">Modelo</Label>
-            <TextBox x:Name="txtModelo" Height="20" Margin="20,1" FontSize="16" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}"></TextBox>
+            <Label HorizontalAlignment="Center" FontSize="20" Margin="5" FontFamily="Arial" Foreground="white" FontWeight="Bold">Registrar Vehículo</Label>
 
-            <Label Margin="5" FontFamily="Arial Black" FontSize="16" Foreground="#FF032CFF">Marca</Label>
-            <TextBox x:Name="txtMarca" Height="20" Margin="20,1" FontSize="16" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}"></TextBox>
+            <Label Margin="2" FontSize="16" FontFamily="Arial Black" Foreground="white">Matricula</Label>
+            <TextBox x:Name="txtMatricula" Height="32" Style="{StaticResource TextBoxStyle}" />
 
-            <Label Margin="2" FontFamily="Arial Black" FontSize="16" Foreground="#FF032CFF">ID Cliente</Label>
-            <TextBox x:Name="txtClienteID" Height="20" Margin="20,1" FontSize="16" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}"></TextBox>
+            <Label Margin="2" FontSize="16" FontFamily="Arial Black" Foreground="white">Modelo</Label>
+            <TextBox x:Name="txtModelo" Height="32" Style="{StaticResource TextBoxStyle}" />
 
-            <Label Height="2" Margin="10,0" Background="Black"/>
-            <Button x:Name="BAgregar" Margin="50,10" Background="{x:Null}" Height="20" Click="BAgregar_Click">Agregar</Button>
-            <Button x:Name="BEditar" Margin="50,10" Background="{x:Null}" Height="20" Click="BEditar_Click">Editar</Button>
-            <Button x:Name="BEliminar" Margin="50,10" Background="{x:Null}" Height="20" Click="BEliminar_Click">Eliminar</Button>
-            <Button x:Name="BRegreso" Margin="50,10" Background="{x:Null}" Height="20" Click="BRegresar_Click">Regresar</Button>
+            <Label Margin="5" FontFamily="Arial Black" FontSize="16" Foreground="white">Marca</Label>
+            <TextBox x:Name="txtMarca" Height="32" Style="{StaticResource TextBoxStyle}" />
+
+            <Label Margin="2" FontFamily="Arial Black" FontSize="16" Foreground="White">ID Cliente</Label>
+            <TextBox x:Name="txtClienteID" Height="32" Style="{StaticResource TextBoxStyle}" />
+
+            <Button x:Name="BAgregar" Margin="50,10" Style="{StaticResource ButtonStyle}" Click="BAgregar_Click" Content="Agregar" />
+            <Button x:Name="BEditar" Margin="50,10" Style="{StaticResource ButtonStyle}" Click="BEditar_Click" Content="Editar" />
+            <Button x:Name="BEliminar" Margin="50,10" Style="{StaticResource ButtonStyle}" Click="BEliminar_Click" Content="Eliminar" />
+            <Button x:Name="BRegreso" Margin="50,10" Style="{StaticResource ButtonStyle}" Click="BRegresar_Click" Content="Regresar" />
         </StackPanel>
     </Grid>
 </Window>

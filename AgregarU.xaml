@@ -5,17 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PRecu"
         mc:Ignorable="d"
-        Title="Agregar Mantenimiento" Height="450" Width="800">
+        Title="Agregar Mantenimiento" Height="500" Width="800">
     <Window.Background>
-        <ImageBrush ImageSource="https://iberisasl.com/blog/wp-content/uploads/2018/01/Licencia-apertura-taller.jpg"></ImageBrush>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#3E50B4" Offset="0"/>
+            <GradientStop Color="#8B5CF6" Offset="1"/>
+        </LinearGradientBrush>
     </Window.Background>
+
+    <Window.Resources>
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="Margin" Value="2"/>
+        </Style>
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="WhiteSmoke"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="Foreground" Value="#FF032CFF"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" x:Name="datagrid_mantenimiento" Background="Transparent" ItemsSource="{Binding Path=LoadDataBinding}" SelectionChanged="datagrid_mantenimiento_SelectionChanged">
+
+        <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" x:Name="datagrid_mantenimiento" Background="Transparent" ItemsSource="{Binding Path=LoadDataBinding}" SelectionChanged="datagrid_mantenimiento_SelectionChanged" Margin="0,0,263,0">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="ColumnaIDMantenimiento" Binding="{Binding Path=NoMantenimiento}" Header="No Mantenimiento" Width="100" IsReadOnly="True" />
                 <DataGridTextColumn x:Name="ColumnaDescripcion" Binding="{Binding Path=descripcion}" Header="Descripción" Width="*" IsReadOnly="True" />
@@ -23,19 +66,24 @@
                 <DataGridTextColumn x:Name="ColumnaClienteID" Binding="{Binding Path=CLIENTE_ID_cliente}" Header="ID Cliente" Width="100" IsReadOnly="True" />
             </DataGrid.Columns>
         </DataGrid>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-            <Label x:Name="LabelNoMantenimiento" Margin="2" FontSize="12" FontFamily="Arial Black" Foreground="#FF032CFF">No Mantenimiento</Label>
-            <TextBox x:Name="txtNoMantenimiento" Height="20" Width="100" Margin="5" FontSize="12" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}" />
-            <Label x:Name="LabelDescripcion" Margin="2" FontSize="12" FontFamily="Arial Black" Foreground="#FF032CFF">Descripción</Label>
-            <TextBox x:Name="txtDescripcion" Height="20" Width="200" Margin="5" FontSize="12" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}" />
-            <Label x:Name="LabelCosto" Margin="2" FontSize="12" FontFamily="Arial Black" Foreground="#FF032CFF">Costo</Label>
-            <TextBox x:Name="txtCosto" Height="20" Width="100" Margin="5" FontSize="12" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}" />
-            <Label x:Name="LabelClienteID" Margin="2" FontSize="12" FontFamily="Arial Black" Foreground="#FF032CFF">ID Cliente</Label>
-            <TextBox x:Name="txtIDCliente" Height="20" Width="100" Margin="5" FontSize="12" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}" />
-            <Button x:Name="BAgregar" Margin="10" Background="{x:Null}" Height="20" Click="BAgregar_Click">Agregar</Button>
-            <Button x:Name="BEditar" Margin="10" Background="{x:Null}" Height="20" Click="BEditar_Click">Editar</Button>
-            <Button x:Name="BEliminar" Margin="10" Background="{x:Null}" Height="20" Click="BEliminar_Click">Eliminar</Button>
-            <Button x:Name="BRegreso" Margin="10" Background="{x:Null}" Height="20" Click="BRegresar_Click">Regresar</Button>
+        <Label  FontFamily="Arial Black" FontSize="16" Foreground="White" Content="MANTENIMIENTO" Margin="605,0,-165,400"/>
+        <StackPanel Orientation="Vertical"  Margin="542,42,10,-22" Grid.RowSpan="2">
+
+            <Label x:Name="LabelNoMantenimiento" Margin="2" FontFamily="Arial Black" FontSize="16" Foreground="White" Content="No Mantenimiento"/>
+            <TextBox x:Name="txtNoMantenimiento" Height="32" Style="{StaticResource TextBoxStyle}" Width="240" />
+            <Label x:Name="LabelDescripcion" Margin="2" FontFamily="Arial Black" FontSize="16" Foreground="White" Content="Descripción"/>
+            <TextBox x:Name="txtDescripcion" Height="32" Style="{StaticResource TextBoxStyle}" Width="240"   />
+
+            <Label x:Name="LabelCosto" Margin="2" FontFamily="Arial Black" FontSize="16" Foreground="White" Content="Costo"/>
+            <TextBox x:Name="txtCosto" Height="32" Style="{StaticResource TextBoxStyle}" Width="240"  />
+
+            <Label x:Name="LabelClienteID" Margin="2" FontFamily="Arial Black" FontSize="16" Foreground="White" Content="ID Cliente"/>
+            <TextBox x:Name="txtIDCliente" Height="32" Style="{StaticResource TextBoxStyle}" Width="240" />
+
+            <Button x:Name="BAgregar" Margin="50,10" FontSize="16" Style="{StaticResource ButtonStyle}" Click="BAgregar_Click" Content="Agregar" />
+            <Button x:Name="BEditar" Margin="50,10" FontSize="16" Style="{StaticResource ButtonStyle}" Click="BEditar_Click" Content="Editar" />
+            <Button x:Name="BEliminar" Margin="50,10" FontSize="16" Style="{StaticResource ButtonStyle}" Click="BEliminar_Click" Content="Eliminar" />
+            <Button x:Name="BRegreso" Margin="50,10" FontSize="16" Style="{StaticResource ButtonStyle}" Click="BRegresar_Click" Content="Regresar" />
         </StackPanel>
     </Grid>
 </Window>

@@ -6,25 +6,73 @@
         xmlns:local="clr-namespace:PRecu"
         mc:Ignorable="d"
         Title="Login" Height="500" Width="420" WindowState="Minimized">
-        <Window.Background>
-        <ImageBrush ImageSource="https://c.wallhere.com/photos/48/ff/simple_background_texture_textured_blue_blue_background_simple_pattern-257765.jpg!d"></ImageBrush>
-        </Window.Background>
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#3E50B4" Offset="0"/>
+            <GradientStop Color="#8B5CF6" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Window.Resources>
-        <Style x:Key="StyleLogin" TargetType="Label">
-            <Setter Property="Foreground" Value="White"></Setter>
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="20"/>
+        </Style>
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#FF78FDE8"/>
+            <Setter Property="BorderBrush" Value="WhiteSmoke"/>
+            <Setter Property="BorderThickness" Value="0 0 0 2"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <Style x:Key="PasswordBoxStyle" TargetType="PasswordBox">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#FF78FDE8"/>
+            <Setter Property="BorderBrush" Value="WhiteSmoke"/>
+            <Setter Property="BorderThickness" Value="0 0 0 2"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="Foreground" Value="#3E50B4"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="#3E50B4"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#3E50B4"/>
+                    <Setter Property="Foreground" Value="#FFFFFF"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
     </Window.Resources>
     <Grid>
-        <Border HorizontalAlignment="Center"  BorderBrush="White" Width="330" Height="450">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="93*"/>
+            <RowDefinition Height="391*"/>
+        </Grid.RowDefinitions>
+        <Border HorizontalAlignment="Center" BorderBrush="White" Width="330" Height="450" Margin="0,17,0,17" Grid.RowSpan="2">
             <StackPanel>
-                <Label FontSize="30" HorizontalAlignment="Center" Height="50" Width="200" FontWeight="DemiBold" Content="Bienvenido" Margin="10" Style="{StaticResource StyleLogin}"></Label>
-                <Label FontSize="20" Content="Usuario" Margin="20" FontWeight="DemiBold" Style="{StaticResource StyleLogin}"></Label>
-                <TextBox x:Name="txtUsuario" Height="40" FontSize="25" Width="300" Background="{x:Null}" Foreground="#FF78FDE8"></TextBox>
-                <Label Height="2" Margin="20,-2" Background="WhiteSmoke"/>
-                <Label FontSize="20" Content="Contraseña" Margin="20" FontWeight="DemiBold" Style="{StaticResource StyleLogin}"></Label>
-                <PasswordBox x:Name="PasswordB" Height="40" Width="300" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF78FDE8"/>
-                <Label Height="2" Margin="20,-2" Background="WhiteSmoke" BorderBrush="{x:Null}"/>
-                <Button x:Name="btnAceptar" Content="Aceptar"  Width="100" Height="28" FontSize="20" FontWeight="DemiBold" FontFamily="Arial" Margin="0,40,0,0" Click="btnAceptar_Click"></Button>
+                <Label Content="BIENVENIDO AL TALLER&#xD;&#xA;" Style="{StaticResource LabelStyle}" Width="237"/>
+                <Label Content="Usuario" Style="{StaticResource LabelStyle}"/>
+                <TextBox x:Name="txtUsuario" Style="{StaticResource TextBoxStyle}"/>
+                <Label Content="Contraseña" Style="{StaticResource LabelStyle}"/>
+                <PasswordBox x:Name="PasswordB" Style="{StaticResource PasswordBoxStyle}"/>
+                <Button x:Name="btnAceptar" Content="Aceptar" Style="{StaticResource ButtonStyle}" Click="btnAceptar_Click"/>
             </StackPanel>
         </Border>
     </Grid>

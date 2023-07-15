@@ -5,45 +5,93 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PRecu.Tablas"
         mc:Ignorable="d"
-        Title="AgregarC" Height="480" Width="620">
+        Title="AgregarC" Height="600" Width="700">
     <Window.Background>
-        <ImageBrush ImageSource="https://iberisasl.com/blog/wp-content/uploads/2018/01/Licencia-apertura-taller.jpg"></ImageBrush>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#3E50B4" Offset="0"/>
+            <GradientStop Color="#8B5CF6" Offset="1"/>
+        </LinearGradientBrush>
     </Window.Background>
+    <Window.Resources>
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="Margin" Value="0,5"/>
+        </Style>
 
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="WhiteSmoke"/>
+            <Setter Property="BorderThickness" Value="0 0 0 1"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="28"/>
+            <Setter Property="Margin" Value="0,10"/>
+            <Setter Property="Background" Value="#FF032CFF"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="Foreground" Value="#FF032CFF"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="195*"/>
+            <RowDefinition Height="97*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="410"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" x:Name="datagrid_cliente" Background="Transparent" ItemsSource="{Binding Path=LoadDataBinding}" SelectionChanged="datagrid_cliente_SelectionChanged" Margin="2,-3,4,78">
+        <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" x:Name="datagrid_cliente" Background="Transparent" ItemsSource="{Binding Path=LoadDataBinding}" SelectionChanged="datagrid_cliente_SelectionChanged" Margin="2,-3,0,78" Grid.RowSpan="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Path=ID_cliente}" Header="ID Cliente" Width="90" IsReadOnly="True" />
-                <DataGridTextColumn Binding="{Binding Path=nombre}" Header="Nombre" Width="120" IsReadOnly="True" />
-                <DataGridTextColumn Binding="{Binding Path=telefono}" Header="Teléfono" Width="120" IsReadOnly="True" />
-                <DataGridTextColumn Binding="{Binding Path=ciudad}" Header="Ciudad" Width="120" IsReadOnly="True" />
-                <DataGridTextColumn Binding="{Binding Path=direccion}" Header="Dirección" Width="200" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=ID_cliente}" Header="ID Cliente" Width="20" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=nombre}" Header="Nombre" Width="80" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=telefono}" Header="Teléfono" Width="80" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=ciudad}" Header="Ciudad" Width="80" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=direccion}" Header="Dirección" Width="*" IsReadOnly="True" />
             </DataGrid.Columns>
         </DataGrid>
-        <StackPanel Grid.Column="1">
+        <StackPanel Grid.Column="1" Margin="10,10,10,10" Grid.RowSpan="2">
+            <Label HorizontalAlignment="Center" FontSize="20" Margin="5" FontFamily="Arial" Foreground="white" FontWeight="Bold">Registrar Cliente</Label>
 
-            <Label HorizontalAlignment="Center" FontSize="20"  Margin="5" FontFamily="Arial" Foreground="#FF032CFF" FontWeight="Bold">Registrar Cliente</Label>
-            <TextBox x:Name="txtIDCliente" Background="{x:Null}"></TextBox>
-            <Label Margin="2" FontSize="16" FontFamily="Arial Black" Foreground="#FF032CFF">Nombre</Label>
-            <TextBox x:Name="txtNombre" Height="32" Margin="20,1" FontSize="16" FontFamily="Arial" Background="Transparent" BorderBrush="{x:Null}" Text="{Binding Path=nombre}"></TextBox>
+            <Label Margin="2" FontSize="16" FontFamily="Arial Black" Foreground="white">ID_cliente</Label>
+            <TextBox x:Name="txtIDCliente" Height="32" Style="{StaticResource TextBoxStyle}" />
 
-            <Label Margin="5" FontFamily="Arial Black" FontSize="16" Foreground="#FF032CFF">Teléfono</Label>
-            <TextBox x:Name="txtTelefono" Height="32" Margin="20,1" FontSize="16" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}" Text="{Binding Path=telefono}"></TextBox>
+            <Label FontSize="16" FontFamily="Arial Black" Foreground="white" Content="Nombre" />
+            <TextBox x:Name="txtNombre" Height="32" Margin="0,1" Style="{StaticResource TextBoxStyle}" Text="{Binding Path=nombre}" />
 
-            <Label Margin="2" FontFamily="Arial Black" FontSize="16" Foreground="#FF032CFF">Ciudad</Label>
-            <TextBox x:Name="txtCiudad" Height="32" Margin="10,1" FontSize="16" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}" Text="{Binding Path=ciudad}"></TextBox>
+            <Label Margin="0,5" FontFamily="Arial Black" FontSize="16" Foreground="white">Teléfono</Label>
+            <TextBox x:Name="txtTelefono" Height="32" Margin="0,1" Style="{StaticResource TextBoxStyle}" Text="{Binding Path=telefono}" />
 
-            <Label Margin="2" FontFamily="Arial Black" FontSize="16" Foreground="#FF032CFF">Dirección</Label>
-            <TextBox x:Name="txtDireccion" Height="32" Margin="10,1" FontSize="16" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}" Text="{Binding Path=direccion}"></TextBox>
-            <Label Height="2" Margin="10,0" Background="Black"/>
-            <Button x:Name="BAgregar" Margin="50,10" Background="{x:Null}" Height="20" Click="BAgregar_Click" >Agregar</Button>
-            <Button x:Name="BEditar" Margin="50,10" Background="{x:Null}" Height="20" Click="BEditar_Click">Editar</Button>
-            <Button x:Name="BEliminar" Margin="50,10" Background="{x:Null}" Height="20" Click="BEliminar_Click" >Eliminar</Button>
-            <Button x:Name="BRegreso" Margin="50,10" Background="{x:Null}" Height="20" Click="BRegresar_Click" >Regresar</Button>
+            <Label Margin="0,2" FontFamily="Arial Black" FontSize="16" Foreground="white">Ciudad</Label>
+            <TextBox x:Name="txtCiudad" Height="32" Margin="0,1" Style="{StaticResource TextBoxStyle}" Text="{Binding Path=ciudad}" />
+
+            <Label Margin="0,2" FontFamily="Arial Black" FontSize="16" Foreground="white">Dirección</Label>
+            <TextBox x:Name="txtDireccion" Height="32" Margin="0,1" Style="{StaticResource TextBoxStyle}" Text="{Binding Path=direccion}" />
+
+            <Button x:Name="BAgregar" Style="{StaticResource ButtonStyle}" Click="BAgregar_Click" Content="Agregar" />
+            <Button x:Name="BEditar" Style="{StaticResource ButtonStyle}" Click="BEditar_Click" Content="Editar" />
+            <Button x:Name="BEliminar" Style="{StaticResource ButtonStyle}" Click="BEliminar_Click" Content="Eliminar" />
+            <Button x:Name="BRegreso" Style="{StaticResource ButtonStyle}" Click="BRegresar_Click" Content="Regresar" />
         </StackPanel>
     </Grid>
 </Window>

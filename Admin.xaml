@@ -5,17 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PRecu"
         mc:Ignorable="d"
-        Title="Admin" Height="250" Width="300">
+        Title="MENU ADMIN" Height="500" Width="420">
     <Window.Background>
-        <ImageBrush ImageSource="https://c.wallhere.com/photos/48/ff/simple_background_texture_textured_blue_blue_background_simple_pattern-257765.jpg!d"></ImageBrush>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#3E50B4" Offset="0"/>
+            <GradientStop Color="#8B5CF6" Offset="1"/>
+        </LinearGradientBrush>
     </Window.Background>
-    <Grid>
+    <Window.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="Foreground" Value="#3E50B4"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="#3E50B4"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#3E50B4"/>
+                    <Setter Property="Foreground" Value="#FFFFFF"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <StackPanel>
-            <Button x:Name="BAccederP" Margin="50,30,50,10" Width="100" Height="28" FontSize="20" FontWeight="DemiBold" FontFamily="Arial" Click="BAccederP_Click" >Mantenimiento</Button>
-            <Button x:Name="BAccederD" Margin="50,10" Width="100" Height="28" FontSize="20" FontWeight="DemiBold" FontFamily="Arial" Click="BAccederD_Click" >Vehiculo</Button>
-            <Button x:Name="BAccederC" Margin="50,10" Width="100" Height="28" FontSize="20" FontWeight="DemiBold" FontFamily="Arial" Click="BAccederC_Click" >Cliente</Button>
-            <Button x:Name="BSalir" Margin="50,10" Width="100" Height="28" FontSize="20" FontWeight="DemiBold" FontFamily="Arial" Click="BSalir_Click" >Salir</Button>
-
+            <Button x:Name="BAccederP" Content="Mantenimiento" Click="BAccederP_Click" Style="{StaticResource ButtonStyle}"/>
+            <Button x:Name="BAccederD" Content="Vehiculo" Click="BAccederD_Click" Style="{StaticResource ButtonStyle}"/>
+            <Button x:Name="BAccederC" Content="Cliente" Click="BAccederC_Click" Style="{StaticResource ButtonStyle}"/>
+            <Button x:Name="BSalir" Content="Salir" Click="BSalir_Click" Style="{StaticResource ButtonStyle}"/>
         </StackPanel>
     </Grid>
 </Window>
