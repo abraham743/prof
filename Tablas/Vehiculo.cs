@@ -8,7 +8,7 @@ namespace PRecu.Tablas
 {
     public class Vehiculo
     {
-        public string matricula { get; set; }
+        public int matricula { get; set; }
 
         public string modelo { get; set; }
 
