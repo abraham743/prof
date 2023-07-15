@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PRecu.Tablas"
         mc:Ignorable="d"
-        Title="AgregarC" Height="600" Width="700">
+        Title="AgregarC" Height="630" Width="800">
     <Window.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
             <GradientStop Color="#3E50B4" Offset="0"/>
@@ -58,7 +58,7 @@
             <RowDefinition Height="97*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="410"></ColumnDefinition>
+            <ColumnDefinition Width="462"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" x:Name="datagrid_cliente" Background="Transparent" ItemsSource="{Binding Path=LoadDataBinding}" SelectionChanged="datagrid_cliente_SelectionChanged" Margin="2,-3,0,78" Grid.RowSpan="2">

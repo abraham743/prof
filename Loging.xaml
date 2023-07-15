@@ -40,22 +40,22 @@
             <Setter Property="Padding" Value="5"/>
         </Style>
         <Style x:Key="ButtonStyle" TargetType="Button">
-            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontSize" Value="16"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontFamily" Value="Arial"/>
-            <Setter Property="Width" Value="150"/>
-            <Setter Property="Height" Value="40"/>
-            <Setter Property="Margin" Value="10"/>
-            <Setter Property="Background" Value="#FFFFFF"/>
-            <Setter Property="Foreground" Value="#3E50B4"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="BorderBrush" Value="#3E50B4"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="28"/>
+            <Setter Property="Margin" Value="0,10"/>
+            <Setter Property="Background" Value="#FF032CFF"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="White"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#3E50B4"/>
-                    <Setter Property="Foreground" Value="#FFFFFF"/>
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="Foreground" Value="#FF032CFF"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -72,7 +72,7 @@
                 <TextBox x:Name="txtUsuario" Style="{StaticResource TextBoxStyle}"/>
                 <Label Content="Contraseña" Style="{StaticResource LabelStyle}"/>
                 <PasswordBox x:Name="PasswordB" Style="{StaticResource PasswordBoxStyle}"/>
-                <Button x:Name="btnAceptar" Content="Aceptar" Style="{StaticResource ButtonStyle}" Click="btnAceptar_Click"/>
+                <Button x:Name="btnAceptar" Content="Aceptar" Style="{StaticResource ButtonStyle}" Click="btnAceptar_Click" Height="44" Width="111"/>
             </StackPanel>
         </Border>
     </Grid>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PRecu"
         mc:Ignorable="d"
-        Title="AgregarV" Height="550" Width="650">
+        Title="AgregarV" Height="570" Width="660">
     <Window.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
             <GradientStop Color="#3E50B4" Offset="0"/>
@@ -36,17 +36,18 @@
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontFamily" Value="Arial"/>
             <Setter Property="Width" Value="100"/>
-            <Setter Property="Height" Value="32"/>
-            <Setter Property="Margin" Value="50,10"/>
-            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Height" Value="28"/>
+            <Setter Property="Margin" Value="0,10"/>
+            <Setter Property="Background" Value="#FF032CFF"/>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="White"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="Transparent"/>
-                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="Foreground" Value="#FF032CFF"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
