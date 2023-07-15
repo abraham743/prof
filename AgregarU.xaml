@@ -53,12 +53,16 @@
     </Window.Resources>
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="551*"/>
+            <ColumnDefinition Width="240*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" x:Name="datagrid_mantenimiento" Background="Transparent" ItemsSource="{Binding Path=LoadDataBinding}" SelectionChanged="datagrid_mantenimiento_SelectionChanged" Margin="0,0,263,0">
+        <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" x:Name="datagrid_mantenimiento" Background="Transparent" ItemsSource="{Binding Path=LoadDataBinding}" SelectionChanged="datagrid_mantenimiento_SelectionChanged" Margin="0,0,0,0">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="ColumnaIDMantenimiento" Binding="{Binding Path=NoMantenimiento}" Header="No Mantenimiento" Width="100" IsReadOnly="True" />
                 <DataGridTextColumn x:Name="ColumnaDescripcion" Binding="{Binding Path=descripcion}" Header="Descripción" Width="*" IsReadOnly="True" />
@@ -66,8 +70,8 @@
                 <DataGridTextColumn x:Name="ColumnaClienteID" Binding="{Binding Path=CLIENTE_ID_cliente}" Header="ID Cliente" Width="100" IsReadOnly="True" />
             </DataGrid.Columns>
         </DataGrid>
-        <Label  FontFamily="Arial Black" FontSize="16" Foreground="White" Content="MANTENIMIENTO" Margin="580,0,48,447"/>
-        <StackPanel Orientation="Vertical"  Margin="542,42,10,-22" Grid.RowSpan="2">
+        <Label  FontFamily="Arial Black" FontSize="16" Foreground="White" Content="MANTENIMIENTO" Margin="25,24,24,423" Grid.Column="1"/>
+        <StackPanel Orientation="Vertical"  Margin="4,66,10,-46" Grid.RowSpan="2" Grid.Column="1">
 
             <Label x:Name="LabelNoMantenimiento" Margin="2" FontFamily="Arial Black" FontSize="16" Foreground="White" Content="No Mantenimiento"/>
             <TextBox x:Name="txtNoMantenimiento" Height="32" Style="{StaticResource TextBoxStyle}" Width="240" />

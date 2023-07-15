@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PRecu"
         mc:Ignorable="d"
-        Title="AgregarV" Height="500" Width="620">
+        Title="AgregarV" Height="500" Width="650">
     <Window.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
             <GradientStop Color="#3E50B4" Offset="0"/>
@@ -22,7 +22,8 @@
         </Style>
         <Style x:Key="TextBoxStyle" TargetType="TextBox">
             <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Height" Value="20"/>
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="Width" Value="200"/>
             <Setter Property="FontFamily" Value="Arial"/>
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Foreground" Value="White"/>
@@ -35,16 +36,16 @@
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontFamily" Value="Arial"/>
             <Setter Property="Width" Value="100"/>
-            <Setter Property="Height" Value="20"/>
+            <Setter Property="Height" Value="32"/>
             <Setter Property="Margin" Value="50,10"/>
-            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="{x:Null}"/>
+                    <Setter Property="Background" Value="Transparent"/>
                     <Setter Property="Foreground" Value="White"/>
                 </Trigger>
             </Style.Triggers>
@@ -66,16 +67,16 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <StackPanel Grid.Column="1">
-            <Label HorizontalAlignment="Center" FontSize="20" Margin="5" FontFamily="Arial" Foreground="white" FontWeight="Bold">Registrar Vehículo</Label>
+        <StackPanel Grid.Column="1" Margin="10">
+            <Label HorizontalAlignment="Center" FontSize="20" Margin="5" FontFamily="Arial" Foreground="White" FontWeight="Bold">Registrar Vehículo</Label>
 
-            <Label Margin="2" FontSize="16" FontFamily="Arial Black" Foreground="white">Matricula</Label>
+            <Label Margin="2" FontSize="16" FontFamily="Arial Black" Foreground="White">Matricula</Label>
             <TextBox x:Name="txtMatricula" Height="32" Style="{StaticResource TextBoxStyle}" />
 
-            <Label Margin="2" FontSize="16" FontFamily="Arial Black" Foreground="white">Modelo</Label>
+            <Label Margin="2" FontSize="16" FontFamily="Arial Black" Foreground="White">Modelo</Label>
             <TextBox x:Name="txtModelo" Height="32" Style="{StaticResource TextBoxStyle}" />
 
-            <Label Margin="5" FontFamily="Arial Black" FontSize="16" Foreground="white">Marca</Label>
+            <Label Margin="5" FontFamily="Arial Black" FontSize="16" Foreground="White">Marca</Label>
             <TextBox x:Name="txtMarca" Height="32" Style="{StaticResource TextBoxStyle}" />
 
             <Label Margin="2" FontFamily="Arial Black" FontSize="16" Foreground="White">ID Cliente</Label>
