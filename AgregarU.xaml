@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PRecu"
         mc:Ignorable="d"
-        Title="Agregar Mantenimiento" Height="570" Width="800">
+        Title="Agregar Mantenimiento" Height="570" Width="800" WindowStartupLocation="CenterScreen">
     <Window.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
             <GradientStop Color="#3E50B4" Offset="0"/>

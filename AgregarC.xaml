@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PRecu.Tablas"
         mc:Ignorable="d"
-        Title="AgregarC" Height="630" Width="800">
+        Title="AgregarC" Height="630" Width="800" WindowStartupLocation="CenterScreen">
     <Window.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
             <GradientStop Color="#3E50B4" Offset="0"/>
