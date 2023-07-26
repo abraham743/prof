@@ -34,5 +34,6 @@ namespace PRecu.Repositorio
         {
             return UsuarioP;
         }
+        //aca los codigos del repositorio
     }
 }

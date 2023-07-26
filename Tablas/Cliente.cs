@@ -17,5 +17,7 @@ namespace PRecu.Tablas
         public string ciudad { get; set; }
 
         public string direccion { get; set; }
+
+        // los datos del cliente
     }
 }

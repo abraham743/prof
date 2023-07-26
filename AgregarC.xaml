@@ -61,6 +61,7 @@
             <ColumnDefinition Width="462"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <!--columnas, filas de la tabla con base de datos-->
         <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" x:Name="datagrid_cliente" Background="Transparent" ItemsSource="{Binding Path=LoadDataBinding}" SelectionChanged="datagrid_cliente_SelectionChanged" Margin="2,-3,0,78" Grid.RowSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=ID_cliente}" Header="ID Cliente" Width="20" IsReadOnly="True" />
@@ -70,6 +71,7 @@
                 <DataGridTextColumn Binding="{Binding Path=direccion}" Header="Dirección" Width="*" IsReadOnly="True" />
             </DataGrid.Columns>
         </DataGrid>
+        <!--llenado de formulario-->
         <StackPanel Grid.Column="1" Margin="10,10,10,10" Grid.RowSpan="2">
             <Label HorizontalAlignment="Center" FontSize="20" Margin="5" FontFamily="Arial" Foreground="white" FontWeight="Bold">Registrar Cliente</Label>
 

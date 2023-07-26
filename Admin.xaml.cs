@@ -24,13 +24,14 @@ namespace PRecu
             InitializeComponent();
         }
 
+        //redireccion
         private void BAccederP_Click(object sender, RoutedEventArgs e)
         {
             AgregarU agreagarp = new AgregarU();
             this.Close();
             agreagarp.Show();
         }
-
+        
         private void BAccederD_Click(object sender, RoutedEventArgs e)
         {
             AgregarD agregard = new AgregarD();
@@ -44,12 +45,13 @@ namespace PRecu
             this.Close();
             agregarc.Show();
         }
-
+        //codigo del bacceder click(button acceder)
         private void BSalir_Click(object sender, RoutedEventArgs e)
         {
             Loging loging = new Loging();
             this.Close();
             loging.Show();
         }
+        //codigo del bsalir click(button salir)
     }
 }

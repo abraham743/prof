@@ -13,5 +13,7 @@ namespace PRecu.Tablas
         public string descripcion { get; set; }
         public decimal costo { get; set; }
         public int CLIENTE_ID_cliente { get; set; }
+
+        // datos del mantenimiento
     }
 }

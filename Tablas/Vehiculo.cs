@@ -17,6 +17,8 @@ namespace PRecu.Tablas
         public int CLIENTE_ID_cliente { get; set; }
 
         public CLIENTE CLIENTE { get; set; }
+
+        //datos del vehiculo
     }
 
 }

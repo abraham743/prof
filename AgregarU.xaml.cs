@@ -55,7 +55,7 @@ namespace PRecu
             datoMantenimiento.costo = decimal.Parse(txtCosto.Text);
             datoMantenimiento.CLIENTE_ID_cliente = int.Parse(txtIDCliente.Text);
         }
-
+        //codigo de carga y mantenimiento de datos
         private void datagrid_mantenimiento_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DataRowView datos = datagrid_mantenimiento.SelectedItem as DataRowView;
@@ -70,6 +70,7 @@ namespace PRecu
             {
                 MessageBox.Show("Seleccione un registro");
             }
+            //codigo de mantenimiento y seleccion
         }
 
         private void BAgregar_Click(object sender, RoutedEventArgs e)

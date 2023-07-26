@@ -19,7 +19,7 @@ using System.Windows.Shapes;
 namespace PRecu
 {
     /// <summary>
-    /// Lógica de interacción para AgregarC.xaml
+    /// conexion con la base de datos
     /// </summary>
     public partial class AgregarC : Window
     {
@@ -27,12 +27,15 @@ namespace PRecu
 
        CLIENTE datoCita = new CLIENTE();
 
+        //Agregar cliente
         public AgregarC()
         {
             InitializeComponent();
             CargarDatosCliente();
         }
 
+
+        //carga de datos en la base de datos y tablas
         private void CargarDatosCliente()
         {
             MySqlConnection conexion = new MySqlConnection(datosServidor);
@@ -68,7 +71,7 @@ namespace PRecu
                 txtDireccion.Text = datos["direccion"].ToString();
             }
         }
-
+        //boton al hacer agregar click funcione
         private void BAgregar_Click(object sender, RoutedEventArgs e)
         {
             MySqlConnection conexion = new MySqlConnection(datosServidor);
@@ -98,6 +101,7 @@ namespace PRecu
             }
         }
 
+        //editar cliente y los datos que utiliza
         private void BEditar_Click(object sender, RoutedEventArgs e)
         {
             MySqlConnection conexion = new MySqlConnection(datosServidor);
@@ -126,7 +130,7 @@ namespace PRecu
                 conexion.Close();
             }
         }
-
+        //eliminar datos de cliente
         private void BEliminar_Click(object sender, RoutedEventArgs e)
         {
             MySqlConnection conexion = new MySqlConnection(datosServidor);
@@ -150,6 +154,7 @@ namespace PRecu
             {
                 conexion.Close();
             }
+            //codigo button eliminar y si la conexion sta bien ,si hay error e conexio cierre
         }
 
         private void BRegresar_Click(object sender, RoutedEventArgs e)
@@ -158,6 +163,7 @@ namespace PRecu
             this.Close();
             administrador.Show();
         }
+        //codigo del button regresar
     }
 
 }

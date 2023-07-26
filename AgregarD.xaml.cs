@@ -91,8 +91,9 @@ namespace PRecu
             }
             finally
             {
-                conexion.Close();
+                conexion.Close(); 
             }
+            // codigo del button agregar 
         }
 
         private void BEditar_Click(object sender, RoutedEventArgs e)
@@ -121,6 +122,7 @@ namespace PRecu
             {
                 conexion.Close();
             }
+            //codigo del button eliminar
         }
 
         private void BEliminar_Click(object sender, RoutedEventArgs e)
@@ -146,6 +148,7 @@ namespace PRecu
             {
                 conexion.Close();
             }
+            //codigo del button eliminar
         }
 
         private void BRegresar_Click(object sender, RoutedEventArgs e)
@@ -154,5 +157,6 @@ namespace PRecu
             this.Close();
             administrador.Show();
         }
+        //codigo del button regresar
     }
 }

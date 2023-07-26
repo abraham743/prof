@@ -28,6 +28,7 @@ namespace PRecu
             InitializeComponent();
         }
 
+        //inicio de sesion con base de datos utilizando nombre y telefono 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
             string nombre = "";
